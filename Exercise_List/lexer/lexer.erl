@@ -58,7 +58,7 @@ collect_results([], Res) ->
     Res;
 collect_results([E|T], Res) ->
     receive
-        {E, PL} -> Res1 = lists:append(Res, [PL]),
+        {E, PL} -> Res1 = Res ++ [PL],
                     collect_results(T, Res1)
     end.
 
